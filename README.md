@@ -1,1 +1,1 @@
-API for users Authentications [In progress...]
+API for users Authentications using JWT [In progress...]
