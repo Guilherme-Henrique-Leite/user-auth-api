@@ -9,6 +9,7 @@ class User:
     """Domain entity representing a user with business rules"""
     username: str
     email: str
+    id: int = None
     is_active: bool = True
     created_at: datetime = datetime.now()
 
