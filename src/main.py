@@ -13,7 +13,7 @@ from infrastructure.database import init_db
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Handles database initialization during application startup."""
-    init_db()
+    await init_db()
     yield
 
 app = FastAPI(
