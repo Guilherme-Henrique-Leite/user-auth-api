@@ -2,8 +2,8 @@
 
 from typing import Optional
 
-from application import RegisterUserInput
 from domain.user import User
+from application.register_user import RegisterUserInput
 
 
 class AuthService:
