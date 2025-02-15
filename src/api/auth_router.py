@@ -1,17 +1,25 @@
 """HTTP endpoints for authentication operations"""
 
-from application.auth_service import AuthService, RegisterUserInput
-from fastapi import APIRouter, Depends, HTTPException
-from infrastructure.database import get_session
+from fastapi import (
+    APIRouter, 
+    Depends, 
+    HTTPException
+)
+from sqlalchemy.ext.asyncio import AsyncSession
+
 from infrastructure.security import PasswordHasher
-from sqlalchemy.orm import Session
+from infrastructure.database import get_session, UserRepository
+from application.auth_service import AuthService, RegisterUserInput
 
 auth_router = APIRouter(prefix="", tags=["User Authentication"])
 
-def get_auth_service(session: Session = Depends(get_session)):
+async def get_auth_service(session: AsyncSession = Depends(get_session)):
     """Creates AuthService instance with dependencies"""
-
-    return AuthService(session, PasswordHasher())
+    async with session as db_session:
+        return AuthService(
+            user_repository=UserRepository(db_session),
+            password_hasher=PasswordHasher()
+        )
 
 @auth_router.post("/register")
 async def register(
