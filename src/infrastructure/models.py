@@ -6,18 +6,20 @@ from sqlalchemy import (
     Boolean, 
     Column, 
     DateTime, 
+    Integer,
     String
 )
 
-from .database import Base
+from .base import Base
 
 
 class UserModel(Base):
     """Database model representing user data"""
     __tablename__ = "users"
 
-    username = Column(String, primary_key=True)
-    email = Column(String, unique=True, index=True)
-    hashed_password = Column(String)
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    username = Column(String, nullable=False)
+    email = Column(String, unique=True, index=True, nullable=False)
+    hashed_password = Column(String, nullable=False)
     is_active = Column(Boolean, default=True)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=datetime.now())
