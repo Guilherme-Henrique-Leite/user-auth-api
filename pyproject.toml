@@ -10,10 +10,11 @@ dependencies = [
     "uvicorn",
     "python-jose[cryptography]",
     "passlib[bcrypt]",
-    "sqlalchemy",
+    "sqlalchemy>=1.4",
     "pytest",
     "pytest-asyncio",
     "ruff>=0.9.6",
+    "aiosqlite"
 ]
 
 [tool.pytest.ini_options]
