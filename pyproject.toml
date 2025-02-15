@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61.0", "uv"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fastapi-auth"
+version = "0.1.0"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "python-jose[cryptography]",
+    "passlib[bcrypt]",
+    "sqlalchemy",
+    "pytest",
+    "pytest-asyncio",
+    "ruff>=0.9.6",
+]
+
+[tool.pytest.ini_options]
+addopts = "-v"
+testpaths = ["src/tests"]
+
+[project.optional-dependencies]
+all = []
