@@ -27,5 +27,6 @@ uvicorn src.main:app --reload
 
 ## Testing
 ```
+ruff check .
 uv run pytest
 ```
