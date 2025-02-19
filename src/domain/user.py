@@ -1,11 +1,10 @@
 """Domain models and business rules for user management"""
 
-from dataclasses import dataclass
+from pydantic import BaseModel
 from datetime import datetime
 
 
-@dataclass
-class User:
+class User(BaseModel):
     """Domain entity representing a user with business rules"""
     username: str
     email: str
