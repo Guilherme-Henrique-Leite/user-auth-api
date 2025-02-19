@@ -2,7 +2,6 @@ services:
   - type: web
     name: user-auth-api
     runtime: docker
-    port: 8000
     env: python
     buildCommand: docker build -t user-auth-api .
     startCommand: uvicorn src.main:app --host 0.0.0.0 --port 8000
