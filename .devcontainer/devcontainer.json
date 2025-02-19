@@ -8,6 +8,9 @@
                 "charliermarsh.ruff",
                 "ms-python.vscode-pylance"
             ],
+            "mounts": [
+                "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+            ],
             "settings": {
                 "python.defaultInterpreterPath": "/usr/local/bin/python",
                 "ruff.enable": true,
