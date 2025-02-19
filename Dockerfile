@@ -4,7 +4,13 @@ WORKDIR /app
 
 COPY . .
 
-RUN pip install uv && uv venv .venv && . .venv/bin/activate && uv pip install -e .
+RUN apt-get update && apt-get install -y gcc libffi-dev
+
+RUN pip install --upgrade pip && \
+    pip install uv && \
+    uv venv .venv && \
+    . .venv/bin/activate && \
+    uv pip install -e .
 
 EXPOSE 8000
 
