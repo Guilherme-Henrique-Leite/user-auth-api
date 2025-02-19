@@ -3,5 +3,3 @@ services:
     name: user-auth-api
     runtime: docker
     env: python
-    buildCommand: docker build -t user-auth-api .
-    startCommand: uvicorn src.main:app --host 0.0.0.0 --port 8000
