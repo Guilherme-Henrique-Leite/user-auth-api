@@ -1,11 +1,10 @@
 """
 Create a DTO for register user
 """
-from dataclasses import dataclass
+from pydantic import BaseModel
 
 
-@dataclass
-class RegisterUserInput:
+class RegisterUserInput(BaseModel):
     """DTO for user registration data"""
     username: str
     email: str
