@@ -5,6 +5,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y \
     git \
     curl \
+    docker.io \
     && rm -rf /var/lib/apt/lists/*
 
 RUN useradd -ms /bin/bash vscode \
